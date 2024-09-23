@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>終極密碼遊戲</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        background-color: white;
+        padding: 40px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        text-align: center;
+        width: 300px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      p {
+        font-size: 16px;
+        color: #666;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+      }
+
+      input[type="number"]:focus {
+        border-color: #fda085;
+        outline: none;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        background-color: #ff7e5f;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #ff6a4d;
+      }
+
+      .message {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #e74c3c;
+      }
+
+      button[type="submit"] {
+        margin-bottom: 10px;
+      }
+
+      form {
+        margin-bottom: 15px;
+      }
+
+      .reset-btn {
+        background-color: #3498db;
+      }
+
+      .reset-btn:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>終極密碼遊戲</h1>
+      <p>猜一個 1 到 100 之間的數字</p>
+      <form method="POST">
+        <input type="number" name="guess" min="1" max="100" required />
+        <br />
+        <button type="submit">猜測</button>
+      </form>
+      <form action="/reset">
+        <button type="submit">重置遊戲</button>
+      </form>
+      {% if message %}
+      <div class="message">{{ message }}</div>
+      {% endif %}
+    </div>
+  </body>
+</html>
